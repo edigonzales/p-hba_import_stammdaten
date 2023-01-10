@@ -2,13 +2,32 @@
 
 ## Schemajob
 
-In _gretljobs_ mit `docker-compose up` die Entwicklungs-DB starten. Anschliessend:
+In _schema-jobs_ mit `docker-compose up` die Entwicklungs-DB starten. Anschliessend:
 
 ```
+createRolesDevelopment
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema createRolesDevelopment
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema dropSchema
 ./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema createSchema configureSchema grantPrivileges
+
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema_pub createRolesDevelopment
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema_pub dropSchema
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema_pub createSchema configureSchema grantPrivileges
 ```
 
 ## GRETL-Jobs
+
+Gretl lokal ohne Image:
+```
+export ORG_GRADLE_PROJECT_dbUriEdit=jdbc:postgresql://localhost:54321/edit
+export ORG_GRADLE_PROJECT_dbUserEdit=ddluser
+export ORG_GRADLE_PROJECT_dbPwdEdit=ddluser
+export ORG_GRADLE_PROJECT_dbUriPub=jdbc:postgresql://localhost:54322/pub
+export ORG_GRADLE_PROJECT_dbUserPub=ddluser
+export ORG_GRADLE_PROJECT_dbPwdPub=ddluser
+```
+
+
 Ein paar wenige AV-Daten via XTF importieren, damit Umbau getestet werden kann:
 
 ```

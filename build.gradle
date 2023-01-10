@@ -19,6 +19,7 @@ buildscript {
 defaultTasks 'importCsv'
 
 def iliModelName = "SO_HBA_Grundstuecke_20230109"
+def fileName = "20230110_cafm_Grundstuecke.csv"
 
 task validateCsv(type: CsvValidator) {
     description = "Validiert die CSV-Datei"
@@ -27,7 +28,7 @@ task validateCsv(type: CsvValidator) {
     encoding = "ISO-8859-1"
     valueSeparator = ";"
     valueDelimiter = null
-    dataFiles = ["20230106_cafm_Grundstuecke_sogis.csv"]
+    dataFiles = [fileName]
 }
 
 task truncateTable(type: SqlExecutor, dependsOn: 'validateCsv') {
@@ -47,7 +48,7 @@ task importCsv(type: CsvImport, dependsOn: 'truncateTable') {
     encoding = "ISO-8859-1"
     valueSeparator = ";"
     valueDelimiter = null
-    dataFile = "20230106_cafm_Grundstuecke_sogis.csv"
+    dataFile = fileName
 }
 
 task transferToPub(type: Db2Db) {
@@ -55,6 +56,6 @@ task transferToPub(type: Db2Db) {
     sourceDb = [dbUriEdit, dbUserEdit, dbPwdEdit]
     targetDb = [dbUriPub, dbUserPub, dbPwdPub]
     transferSets = [
-            new TransferSet('transfer_grundstuecke.sql', 'hba_grundstuecke_pub_v1.grundstuecke_grundstueck', true)
+            new TransferSet('transfer_grundstuecke.sql', 'hba_grundstuecke_pub_v1.grundstuecke_liegenschaft', true)
     ];
 }
