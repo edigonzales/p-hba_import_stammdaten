@@ -13,6 +13,15 @@ createRolesDevelopment
 ./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema_pub createRolesDevelopment
 ./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema_pub dropSchema
 ./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_grundstuecke --schema-dirname schema_pub createSchema configureSchema grantPrivileges
+
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_gebaeude --schema-dirname schema createRolesDevelopment
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_gebaeude --schema-dirname schema dropSchema
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_gebaeude --schema-dirname schema createSchema configureSchema grantPrivileges
+
+
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_gebaeude --schema-dirname schema_pub createRolesDevelopment
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_gebaeude --schema-dirname schema_pub dropSchema
+./start-gretl.sh --docker-image sogis/gretl:latest --docker-network schema-jobs_default --topic-name hba_gebaeude --schema-dirname schema_pub createSchema configureSchema grantPrivileges
 ```
 
 ## GRETL-Jobs

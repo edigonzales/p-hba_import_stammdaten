@@ -17,8 +17,6 @@ egid;xkoordinaten;ykoordinaten;energietraeger;nutzungsart;wirtschaftseinheit
 ;2606773.000;1228788.000;Fernwärme;Verwaltungsvermögen;3143-01
 ;2607155.300;1228868.300;Fernwärme;Finanzvermögen;3104-03
 ;2607177.600;1228961.400;-;Finanzvermögen;3104-06
-;2607358.000;2607358.000;Heizöl;Verwaltungsvermögen;3420-01
-;2607391.000;2607391.000;Erdgas;Verwaltungsvermögen;1101-05
 ;2607405.900;1228690.200;Fernwärme;Verwaltungsvermögen;3132-01
 ;2607408.100;1228878.800;Fernwärme;Anmietobjekte;4142-02
 ;2607423.200;1227621.800;;Verwaltungsvermögen;2110-33
@@ -38,10 +36,6 @@ egid;xkoordinaten;ykoordinaten;energietraeger;nutzungsart;wirtschaftseinheit
 ;2607893.000;1228257.000;Fernwärme;Anmietobjekte;4124-01
 ;2607956.300;1229095.600;Fernwärme;Verwaltungsvermögen;1102-02
 ;2607959.300;1229039.400;Fernwärme;Verwaltungsvermögen;1102-03
-;2610076.000;2610076.000;-;Verwaltungsvermögen;3416-02
-;2613153.000;2613153.000;-;Verwaltungsvermögen;3406-25
-;2613160.000;2613160.000;Elektro;Verwaltungsvermögen;3406-12
-;2613320.000;2613320.000;Holzschnitzel;Verwaltungsvermögen;3406-26
 ;2615872.000;1258640.000;;Verwaltungsvermögen;3909-01
 1764599;;;Erdgas;Finanzvermögen;2102-72
 1764606;;;Fernwärme;Verwaltungsvermögen;2102-01

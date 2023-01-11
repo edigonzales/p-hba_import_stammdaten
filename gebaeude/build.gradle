@@ -16,7 +16,7 @@ buildscript {
     }
 }
 
-defaultTasks 'importCsv'
+defaultTasks 'transferToPub'
 
 def iliModelName = "SO_HBA_Gebaeude_20230111"
 def fileName = "20230110_sap_Gebaeude.csv"
@@ -31,9 +31,9 @@ task validateCsv(type: CsvValidator) {
     dataFiles = [fileName]
 }
 
-/*
+
 task truncateTable(type: SqlExecutor, dependsOn: 'validateCsv') {
-    description = "Leert die Tabelle grundstuecke_grundstueck"
+    description = "Leert die Tabelle gebaeude_gebaeude"
     database = [dbUriEdit, dbUserEdit, dbPwdEdit]
     sqlFiles = [
             'truncate_table.sql'
@@ -43,8 +43,8 @@ task truncateTable(type: SqlExecutor, dependsOn: 'validateCsv') {
 task importCsv(type: CsvImport, dependsOn: 'truncateTable') {
     description = "Import die CVS-Datei in die Datenbank"
     database = [dbUriEdit, dbUserEdit, dbPwdEdit]
-    schemaName = "hba_grundstuecke_v1"
-    tableName = "grundstuecke_grundstueck"
+    schemaName = "hba_gebaeude_v1"
+    tableName = "gebaeude_gebaeude"
     firstLineIsHeader=true
     encoding = "ISO-8859-1"
     valueSeparator = ";"
@@ -57,7 +57,6 @@ task transferToPub(type: Db2Db) {
     sourceDb = [dbUriEdit, dbUserEdit, dbPwdEdit]
     targetDb = [dbUriPub, dbUserPub, dbPwdPub]
     transferSets = [
-            new TransferSet('transfer_grundstuecke.sql', 'hba_grundstuecke_pub_v1.grundstuecke_liegenschaft', true)
+            new TransferSet('transfer_gebaeude.sql', 'hba_gebaeude_pub_v1.gebaeude_gebaeude', true)
     ];
 }
-*/
