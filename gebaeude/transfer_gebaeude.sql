@@ -1,3 +1,4 @@
+
 WITH av_gebaeude AS 
 (
     SELECT
@@ -36,7 +37,7 @@ SELECT
         WHEN energietraeger = 'Fernwärme' THEN 'Fernwaerme'
         WHEN energietraeger = 'Erdwärme' THEN 'Erdwaerme'
         WHEN energietraeger = 'Elektro' THEN 'Elektro'
-        WHEN energietraeger = '-' THEN 'unbekannt'
+        WHEN energietraeger = '-' THEN 'nicht_beheizt'
         WHEN energietraeger IS NULL THEN 'unbekannt'
     END AS energietraeger,
     CASE 
@@ -49,7 +50,7 @@ SELECT
         WHEN energietraeger = 'Fernwärme' THEN 'Fernwärme'
         WHEN energietraeger = 'Erdwärme' THEN 'Erdwärme'
         WHEN energietraeger = 'Elektro' THEN 'Elektro'
-        WHEN energietraeger = '-' THEN 'unbekannt'
+        WHEN energietraeger = '-' THEN 'nicht beheizt'
         WHEN energietraeger IS NULL THEN 'unbekannt'
     END AS energietraeger_txt,
     CASE 
@@ -103,3 +104,5 @@ FROM
         gebaeude.egid IS NOT NULL 
 )
 AS foo
+    
+    

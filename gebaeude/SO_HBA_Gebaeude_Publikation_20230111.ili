@@ -25,7 +25,8 @@ VERSION "2023-01-11"  =
        */
       Energietraeger : MANDATORY (
         unbekannt,
-        andere,
+        !!@ ili2db.dispName="nicht beheizt"
+        nicht_beheizt,
         Mischform,
         Pellet,
         Luft,
