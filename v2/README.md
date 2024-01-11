@@ -38,9 +38,37 @@ docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schem
   gretl -PtopicName=hba_grundstuecke -PschemaDirName=schema_pub dropSchema createSchema configureSchema
 ```
 
+------
+
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=hba_gebaeude -PschemaDirName=schema createSchema configureSchema
+```
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=hba_gebaeude -PschemaDirName=schema dropSchema createSchema configureSchema
+```
+
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=hba_gebaeude -PschemaDirName=schema_pub createSchema configureSchema
+```
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=hba_gebaeude -PschemaDirName=schema_pub dropSchema createSchema configureSchema
+```
+
 
 ## GRETL-Jobs
 
 ```
 docker compose run --rm -u $UID gretl --project-dir=hba_grundstuecke_pub validateCsv
+```
+
+```
+docker compose run --rm -u $UID gretl --project-dir=hba_gebaeude_pub validateCsv
 ```
