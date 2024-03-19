@@ -63,6 +63,20 @@ docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schem
 ```
 
 
+--------
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=hba_immobilienportfolio -PschemaDirName=schema_pub createSchema configureSchema
+```
+
+
+
+```
+docker compose run --rm -u $UID --workdir //home/gradle/schema-jobs/shared/schema \
+  gretl -PtopicName=hba_immobilienportfolio -PschemaDirName=schema_pub dropSchema createSchema configureSchema
+```
+
 ## GRETL-Jobs
 
 ```
